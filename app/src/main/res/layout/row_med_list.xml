@@ -16,6 +16,7 @@
         android:layout_margin="2dp">
 
         <Button
+            android:id="@+id/tvBtn"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:text="@{currItem.cm.en}"

@@ -32,8 +32,6 @@ class MainFragment : Fragment() {
         rvList.adapter = MedListAdapter()
 
         setListeners()
-
-        viewModel
     }
 
     private fun setListeners() {

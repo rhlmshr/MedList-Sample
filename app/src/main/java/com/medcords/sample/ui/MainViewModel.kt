@@ -9,6 +9,6 @@ class MainViewModel : ViewModel() {
 
     val medsLiveData = liveData {
         emit(ResponseState.Loading)
-        emit(repo.getMedList().data)
+        emit(ResponseState.Success(repo.getMedList().data))
     }
 }

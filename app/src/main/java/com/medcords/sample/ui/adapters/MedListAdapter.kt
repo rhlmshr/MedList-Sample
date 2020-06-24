@@ -10,6 +10,7 @@ import com.medcords.sample.network.models.Cm
 import com.medcords.sample.network.models.ListEntity
 import com.medcords.sample.utils.executeAfter
 import com.medcords.sample.utils.toastShort
+import kotlinx.android.synthetic.main.row_med_list.view.*
 
 class MedListAdapter : ListAdapter<ListEntity, MedListAdapter.ViewHolder>(MedListDiffCallback) {
 
@@ -19,7 +20,7 @@ class MedListAdapter : ListAdapter<ListEntity, MedListAdapter.ViewHolder>(MedLis
         holder.binding.executeAfter {
             val entity = getItem(position)
             currItem = entity
-            root.setOnClickListener { root.context.toastShort(entity.cm.hi) }
+            root.tvBtn.setOnClickListener { root.context.toastShort(entity.cm.hi) }
         }
     }
 
