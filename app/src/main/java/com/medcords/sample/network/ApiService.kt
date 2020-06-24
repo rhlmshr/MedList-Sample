@@ -28,5 +28,5 @@ object ApiService {
         .client(httpClient()).build()
         .create(DataService::class.java)
 
-    suspend fun getMedList(): List<BaseResponse<ListEntity>> = apiClient.getMedList()
+    suspend fun getMedList() = apiClient.getMedList()
 }

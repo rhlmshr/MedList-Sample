@@ -7,7 +7,7 @@ import retrofit2.http.POST
 interface DataService {
 
     @POST("mhc/test_get_cc")
-    suspend fun getMedList(): List<BaseResponse<ListEntity>>
+    suspend fun getMedList(): BaseResponse<List<ListEntity>>
 
     companion object {
         const val API_URL = "https://webserver-dev1.medcords.com/"

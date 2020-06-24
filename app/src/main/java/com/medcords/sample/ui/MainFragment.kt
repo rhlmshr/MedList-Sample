@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import com.medcords.sample.R
+import com.medcords.sample.network.models.Cm
+import com.medcords.sample.network.models.ListEntity
 import com.medcords.sample.network.models.ResponseState
 import com.medcords.sample.ui.adapters.MedListAdapter
 import com.medcords.sample.utils.getViewModel
@@ -35,8 +37,9 @@ class MainFragment : Fragment() {
     }
 
     private fun setListeners() {
-        viewModel.postsLiveData.observe(this, Observer { res ->
-            if (res is ResponseState.Success) (rvList.adapter as MedListAdapter).submitList(res.data)
+        viewModel.medsLiveData.observe(this, Observer { res ->
+            if (res is ResponseState.Success<*>)
+                (rvList.adapter as MedListAdapter).submitList(res.data as List<ListEntity>)
         })
     }
 }

@@ -7,10 +7,11 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.medcords.sample.databinding.RowMedListBinding
 import com.medcords.sample.network.models.Cm
+import com.medcords.sample.network.models.ListEntity
 import com.medcords.sample.utils.executeAfter
 import com.medcords.sample.utils.toastShort
 
-class MedListAdapter : ListAdapter<Cm, MedListAdapter.ViewHolder>(MedListDiffCallback) {
+class MedListAdapter : ListAdapter<ListEntity, MedListAdapter.ViewHolder>(MedListDiffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ViewHolder.create(parent)
 
@@ -18,7 +19,7 @@ class MedListAdapter : ListAdapter<Cm, MedListAdapter.ViewHolder>(MedListDiffCal
         holder.binding.executeAfter {
             val entity = getItem(position)
             currItem = entity
-            root.setOnClickListener { root.context.toastShort(currItem.hi) }
+            root.setOnClickListener { root.context.toastShort(entity.cm.hi) }
         }
     }
 
@@ -33,7 +34,7 @@ class MedListAdapter : ListAdapter<Cm, MedListAdapter.ViewHolder>(MedListDiffCal
     }
 }
 
-object MedListDiffCallback : DiffUtil.ItemCallback<Cm>() {
-    override fun areItemsTheSame(oldItem: Cm, newItem: Cm) = oldItem == newItem
-    override fun areContentsTheSame(oldItem: Cm, newItem: Cm) = oldItem == newItem
+object MedListDiffCallback : DiffUtil.ItemCallback<ListEntity>() {
+    override fun areItemsTheSame(oldItem: ListEntity, newItem: ListEntity) = oldItem == newItem
+    override fun areContentsTheSame(oldItem: ListEntity, newItem: ListEntity) = oldItem == newItem
 }
